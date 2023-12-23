@@ -1,0 +1,148 @@
+
+:root {
+
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,html {
+  font-family: Poppins, sans-serif;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #66dbe5,#1e427f );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px;
+  min-height: 300px;
+  width: 500px;
+  /* overflow: hidden; */
+  text-align: center;
+  position: relative;
+}
+
+.login-header {
+  position: relative;
+  border-bottom: solid 2px #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.header-elements {
+  border-radius: 4px;
+  border: solid 2px #000;
+  padding: 5px;
+  width: 80px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  cursor: pointer;
+}
+
+.active {
+  font-size: 14px;
+  padding: 7px;
+  box-shadow: rgb(85, 86, 87) 3px 3px 6px 0px inset, rgba(193, 193, 193, 0.5) 3px -3px 6px 1px inset;
+}
+
+.login-container {
+  margin-top: 20px;
+  height: 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  justify-content: space-around;
+  position: relative;
+  border-radius: 20px;
+  animation: makeVisible 1s ease;
+}
+
+.login-container > form {
+  margin-inline: 80px;
+  display: grid;
+  grid-template: repeat(2,1fr) / 1fr 3fr;
+  gap: 20px;
+}
+
+.main-container button {
+  background-color: #2061d0;
+  width: 120px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  color: #fff;
+}
+
+.main-container button:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 4px 4px;
+}
+
+.registration-container {
+  position: absolute;
+  background-color: #fff;
+  top: 30px;
+  width: 500px;
+  border-radius: 20px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 420px;
+  box-shadow: 5px 5px 10px;
+  z-index: 1;
+}
+
+.registration-container h2 {
+  margin-top: 20px;
+}
+
+.registration-container > form {
+  display: grid;
+  grid-template: repeat(6, 0.4fr)  / 1fr 2fr;
+  margin-inline: 60px;
+  gap: 15px;
+}
+
+.registration-container > form > label {
+  text-align: right;
+}
+
+.error-column {
+  position: absolute;
+}
+
+.registration-container button {
+  margin-top: 10px;
+}
+
+.animate-reverse {
+  animation: makeVisible 1s ease reverse forwards;
+}
+
+.rotate-side{
+  transform: translateX(200px) translateY(-200px) rotate(-90deg);
+}
+
+@keyframes makeVisible {
+  0% {
+    opacity: 0;
+    z-index: 1;
+  }
+  100% {
+    opacity: 1;
+    z-index: 2;
+    transform: translateX(200px) translateY(-200px) rotate(-90deg);
+  }
+}
