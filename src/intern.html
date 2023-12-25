@@ -3,9 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Doubt Tracker</title>
+  <link rel="shortcut icon" href="../Assets/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/intern.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <main>
+    <div class="nav-bar">
+      <div class="title-container">
+        <img src="../Assets/favicon.png" alt="Title Image" class="title-image">
+        <h3 class="title-text">Doubts Tracker</h3>
+      </div>
+      <div class="profile-container">
+        <div>
+          <p class="profile-name">Cherisher</p>
+          <p class="profile-type">Intern</p>
+        </div>
+        <div>
+          <div class="profile-picture">
+            <div class="profile-picture-overlay">
+              <input type="file" name="profile-picture-input" id="profile-picture-inp">
+              <i class="fa-solid fa-camera"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-doubt-container">
+      <form class="add-doubts-form" id="doubt-posting-form">
+        <label for="doubt-topic">Topic : </label>
+        <input type="text" id="doubt-topic" class="ask-doubt-entries" placeholder="Enter Topic Here..." required>
+        <label for="doubt-description">Description :</label>
+        <textarea rows="4" cols="50" form="doubt-posting-form" id="doubt-description" class="ask-doubt-entries" placeholder="Describe your doubt Here..."></textarea>
+        <label for="doubt-category">Category :</label>
+        <select name="doubt-category-input" id="doubt-category" class="ask-doubt-entries">
+          <option value="" selected disabled hidden>Choose a Category</option>
+          <option value="general">General</option>
+          <option value="process">Process</option>
+          <option value="technical">Technical</option>
+          <option value="others">Others</option>
+        </select>
+        <label for="doubt-related-images">Description Images:</label>
+        <input type="file" accept=".jpg,.jpeg,.png,.gif" id="doubt-image-upload" class="ask-doubt-entries" multiple>
+        <label for="doubt-related-links">Relevant Links:</label>
+        <input type="text" id="doubt-related-links" placeholder="Links go Here..." class="ask-doubt-entries" required>
+        <button type="submit">Post Doubt</button>
+      </form>
+    </div>
+    <section class="doubts-display-container">
+      <div class="filter-container">
+        <div class="filter-categories">
+          <p class="filter-categories-text">Category :</p>
+          <select name="doubt-category-input" id="doubt-category" class="doubt-filter-options">
+            <option value="" selected disabled hidden>Choose a Category</option>
+            <option value="general">General</option>
+            <option value="process">Process</option>
+            <option value="technical">Technical</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <div class="filter-options">
+          <!-- Additional filter options will be added here -->
+          <label for="filter-options">Filter By : </label>
+          <select name="filter-option-input" id="filter-options" class="doubt-filter-options">
+            <option value="" selected disabled hidden>Choose a Filter</option>
+            <option value="popularity-asc">Popularity (Ascending)</option>
+            <option value="popularity-desc">Popularity (Descending)</option>
+            <option value="name-asc">Name (Alphabetical)</option>
+            <option value="name-desc">Name (Descending)</option>
+            <option value="status">Status</option>
+          </select>
+        </div>
+      </div>
+      <div class="doubt-list-container">
+        <div class="doubt-header doubt-data">
+          <p class="doubt-header-user-name">User</p>
+          <p class="doubt-header-topic">Topic</p>
+          <p class="doubt-header-category">Category</p>
+          <p class="doubt-header-status">Status</p>
+        </div>
+        <div class="doubt-entry doubt-data">
+          <div>
+            <p class="doubt-user-name">Cherisher</p>
+            <p class="doubt-topic">JavaScript</p>
+            <p class="doubt-category">Technical</p>
+            <p class="doubt-status">Unresolved</p>
+          </div>
+          <div>
+            <div>
+              <i class="fa-regular fa-eye"></i><span id="vote-count">&nbsp;0</span>
+            </div>
+            <button>
+              <i class="fa-regular fa-thumbs-up"></i><span class="vote-buttons" id="up-vote">&nbsp;Up Vote</span>
+            </button>
+            <button>
+              <i class="fa-regular fa-thumbs-down"></i><span class="vote-buttons" id="down-vote">&nbsp;Down Vote</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./js/intern.js"></script>
+  <script src="https://kit.fontawesome.com/a661c43ce1.js" crossorigin="anonymous"></script>
 </body>
 </html>

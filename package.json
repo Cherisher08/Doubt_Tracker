@@ -30,6 +30,10 @@
     "lintHTML": "eslint \"src/**/*.html\"",
     "lintCSS": "stylelint \"src/**/*.css\"",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --findRelatedTests tests/unit-tests/",
-    "start": "node express-server.cjs"
+    "auto-start": "nodemon express-server.cjs",
+    "start" : "node express-server.cjs"
+  },
+  "dependencies": {
+    "nodemon": "^3.0.2"
   }
 }

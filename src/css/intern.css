@@ -1,0 +1,257 @@
+:root {
+  font-size: 18px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,html {
+  font-family: Poppins, sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  height: clamp(600px, 100%, 1000px);
+  width: 100%;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(6,1fr);
+}
+
+.nav-bar {
+  height: 100px;
+  margin: 20px;
+  border: solid 3px #5d5d5d;
+  border-radius: 10px;
+  background: linear-gradient(to right bottom, #61228b, #9054ad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 30px;
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-image {
+  max-width: 3.6rem;
+  border-radius: 20px;
+  margin-right: 1rem;
+}
+
+.title-text {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.profile-container {
+ display: flex;
+ align-items: center;
+ color: white;
+ font-weight: 500;
+}
+
+.profile-container > div:first-child {
+  margin-right: 1rem;
+}
+
+.profile-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-container > div > p {
+  width: 100%;
+  text-align: right;
+}
+
+.profile-type {
+  position: relative;
+  right: 5px;
+  top: -3px;
+  font-size: 0.8rem; 
+  font-weight: 100;
+}
+
+.profile-picture {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50px;
+  background: url("../../Assets/cherisher.png") no-repeat;
+  background-size: contain;
+  position: relative;
+  cursor: pointer;
+  border: solid 2px #000;
+}
+
+.profile-picture-overlay {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 50px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profile-picture-overlay input[type="file"] {
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.profile-picture-overlay > i {
+  border-radius: 0 0 50px 50px;
+  height: 1.4rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #5d5d5d90;
+}
+
+.profile-picture-overlay:hover {
+  opacity: 1;
+}
+
+.add-doubt-container {
+  background: linear-gradient(to right, #8525b5 0%, #720db5 50%, #8525b5) ;
+  margin: 0 1.1rem 1.1rem;
+  height: clamp(500px,calc(100% - 180px), 100%);
+  border: solid 3px #5d5d5d;
+  padding: 1rem;
+  border-radius: 20px;
+  grid-area: 2 / 1 / -1 / 3;
+}
+
+.add-doubts-form {
+  display: grid;
+  grid-template: repeat(6, 3rem) / 1fr 2fr;
+  align-items: center;
+  gap: 20px 10px;
+  font-size: 0.7rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+}
+
+.add-doubts-form > label {
+  text-align: right;
+}
+
+.ask-doubt-entries {
+  font-size: 0.9rem;
+  height: 30px;
+  width: 100%
+}
+
+.add-doubts-form > textarea {
+  height: 50px;
+}
+
+.add-doubt-container input[type='file'] {
+  margin-left: 0.5rem;
+  color: transparent;
+  font-size: 1rem;
+}
+
+button {
+  margin: auto;
+  grid-area: -2 / 1 / -1 / -1;
+  width: fit-content;
+  padding: 0.4rem;
+  white-space: nowrap;
+  font-size: 1rem; 
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.doubts-display-container {
+  grid-area: 2 / 3 / -1 / -1;
+  width: 100%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 20px 20px 0;
+  border: solid 2px #5d5d5d;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 0.8rem;
+  background: linear-gradient(to bottom, #fff 0%, #e1e1e1 50%, #fff 100%);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.filter-container p {
+  margin-right: 10px;
+}
+
+.filter-categories {
+  display: flex;
+}
+
+.doubt-list-container {
+  font-size: 0.9rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem;
+  grid-auto-rows: 4rem;
+  margin-right: 20px;
+  row-gap: 10px;
+}
+
+.doubt-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 2px #5d5d5d;
+  background: linear-gradient(to bottom,#e0e0e0 0%,#fff 33%, #fff 66%, #e0e0e0 100%);
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.doubt-entry {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+.doubt-entry > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.doubt-entry > div:nth-child(2){
+  justify-content: center;
+}
+
+.doubt-entry button {
+  margin: 0 0 0 15px;
+  font-size: 0.7rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border: none;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+button:hover {
+  border: solid 3px #000;
+}

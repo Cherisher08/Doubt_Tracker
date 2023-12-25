@@ -1,7 +1,3 @@
-
-:root {
-
-}
 * {
   margin: 0;
   box-sizing: border-box;
@@ -21,9 +17,9 @@ body,html {
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 5px 5px 10px;
-  min-height: 300px;
+  height: 440px;
   width: 500px;
-  /* overflow: hidden; */
+  overflow: hidden;
   text-align: center;
   position: relative;
 }
@@ -60,18 +56,20 @@ body,html {
 
 .login-container {
   margin-top: 20px;
-  height: 300px;
+  height: 390px;
   width: 500px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   justify-content: space-around;
-  position: relative;
+  position: absolute;
+  top: 20px;
   border-radius: 20px;
-  animation: makeVisible 1s ease;
+  z-index: 2;
 }
 
-.login-container > form {
+.login-container > fieldset {
+  border: none;
   margin-inline: 80px;
   display: grid;
   grid-template: repeat(2,1fr) / 1fr 3fr;
@@ -99,50 +97,80 @@ body,html {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 420px;
-  box-shadow: 5px 5px 10px;
-  z-index: 1;
+  height: 410px;
 }
 
 .registration-container h2 {
   margin-top: 20px;
 }
 
-.registration-container > form {
+.registration-container > fieldset {
+  border: none;
   display: grid;
   grid-template: repeat(6, 0.4fr)  / 1fr 2fr;
-  margin-inline: 60px;
+  margin-inline: 50px;
   gap: 15px;
 }
 
-.registration-container > form > label {
+.registration-container > fieldset > label {
   text-align: right;
 }
 
 .error-column {
+  color: red;
   position: absolute;
+  top: 165px;
+  font-size: 12px;
+  font-weight: 700;
+  left: 200px;
+}
+
+.display-error::before {
+  content: "Already Exists!";
 }
 
 .registration-container button {
   margin-top: 10px;
 }
 
-.animate-reverse {
-  animation: makeVisible 1s ease reverse forwards;
+.animate-bring-front {
+  animation: bringFront 1s ease normal forwards;
 }
 
-.rotate-side{
-  transform: translateX(200px) translateY(-200px) rotate(-90deg);
+.animate-move-behind {
+  animation: moveBehind 1s ease forwards;
 }
 
-@keyframes makeVisible {
+@keyframes moveBehind {
   0% {
-    opacity: 0;
+    z-index: 2;
+    transform: translateX(0); 
+  }
+  50% {
     z-index: 1;
+    transform: translateX(-300px);
   }
   100% {
-    opacity: 1;
-    z-index: 2;
-    transform: translateX(200px) translateY(-200px) rotate(-90deg);
+    z-index: 1;
+    transform: translateX(0);
   }
+}
+
+@keyframes bringFront {
+  0% {
+    transform: translateX(0);
+    z-index: 1;
+  }
+  50% {
+    z-index: 2;
+    transform: translateX(300px);
+  }
+  100% {
+    z-index: 2;
+    transform: translateX(0);
+  }
+}
+
+.hidden {
+  display: none;
 }

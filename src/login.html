@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
+  <link rel="shortcut icon" href="../Assets/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="./css/loginStyles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,45 +16,47 @@
       <p class="header-elements active">Sign in</p>
       <p class="header-elements">Sign Up</p>
     </div>
-    <div class="login-container animate-reverse">
+    <div class="login-container" id="login-container">
+      <div class="empty-container"></div>
       <h1>Welcome Back!</h1>
-      <form action="/user/signin" method="post" id="sign-in-form">
+      <fieldset id="sign-in-form">
         <label for="username-input">Username:</label>
-        <input type="text" id="username-input" name="username" placeholder="Your Email-id">
+        <input type="text" class="sign-in-entries" id="username-input" name="username" placeholder="Your Email-id">
         <label for="password-input">Password:</label>
-        <input type="password" id="password-input" name="password" placeholder="Your Password"><br>
-        <button type="submit" form="sign-in-form">Sign In</button>
-      </form>
-      <a href="#" onclick="showSignUp()">Don't have an account? Sign up!</a>
+        <input type="password" class="sign-in-entries" id="password-input" name="password" placeholder="Your Password"><br>
+        <button id="sign-in-button">Sign In</button>
+      </fieldset>
+      <a href="#" id="sign-up-link">Don't have an account? Sign up!</a>
     </div>
-    <div class="registration-container">
+    <div class="registration-container" id="registration-container">
+      <div class="empty-container"></div>
       <h2>Create your Account</h2>
-      <form action="/user/register" method="post" id="sign-up-form">
+      <fieldset method="post" id="sign-up-form">
         <label for="name-input">Name:</label>
-        <input type="text" id="name-input" name="name" required>
+        <input type="text" class="sign-up-entries" id="name-input" name="name" placeholder="Enter Your Name" required>
         <label for="email-input">Email Address:</label>
-        <input type="email" id="email-input" name="email" required>
+        <input type="email" class="sign-up-entries" id="email-input" name="email" placeholder="Enter Your Email" required>
         <span id="email-error" class="error-column"></span>
         <label for="pass-confirm-input">Password:</label>
-        <input type="password" id="pass-confirm-input" name="confirm-password" onkeyup="checkPass()" required>
+        <input type="password" class="sign-up-entries" id="pass-confirm-input" name="confirm-password" placeholder="Enter Your Password" required>
         <span id="pass-error" class="error-column"></span>
         <label for="account-type-input">Register As:</label>
-        <select name="accountType" id="account-type-input">
-          <option value="">Select Account Type</option>
+        <select name="accountType"  class="sign-up-entries" id="account-type-input">
+          <option value="" selected disabled hidden>Select Account Type</option>
           <option value="intern">Intern</option>
           <option value="l&d">L&D</option>
         </select>
-        <label for="department-input">Department:</label>
-        <select name="deptId" id="department-input">
-          <option value="">Select An Option</option>
+        <label for="department-input" class="department-select-field hidden">Department:</label>
+        <select name="deptId" class="sign-up-entries department-select-field hidden" id="department-input">
+          <option value="" selected disabled hidden>Select An Option</option>
           <option value="back-end">Back End</option>
           <option value="front-end">Front End</option>
           <option value="labview">LabView</option>
           <option value="python">Python</option>
         </select><br>
-        <button type="button" onclick="checkPasswords()" form="sign-up-form">Sign Up</button>
-      </form>
-      <a href="#" onclick="showSignIn()">Already have an account? Log in!</a>
+        <button type="button" id="sign-up-button">Sign Up</button>
+      </fieldset>
+      <a href="#" id="sign-in-link">Already have an account? Log in!</a>
     </div>
   </div>
   <script type="module" src="./js/main.js"></script>
